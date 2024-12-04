@@ -36,16 +36,20 @@ class _AcademicWidgetState extends State<AcademicWidget> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        widget.academic?.image ?? "coming soon..",
-                        width: width * .13,
-                        height: width * .13,
+                      Flexible(
+                        child: Image.asset(
+                          widget.academic?.image ?? "coming soon..",
+                          width: width * .13,
+                          height: width * .13,
+                        ),
                       ),
-                      Text(
-                                              widget.academic?.name ?? "coming soon",
-                                              style:  TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: width*.03),
-                                            ),
+                      Flexible(
+                        child: Text(
+                                                widget.academic?.name ?? "coming soon",
+                                                style:  TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: width*.02),
+                                              ),
+                      ),
                     ],
                   ),
                 ),
