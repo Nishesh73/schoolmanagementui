@@ -10,39 +10,47 @@ class AcademicWidget extends StatefulWidget {
 }
 
 class _AcademicWidgetState extends State<AcademicWidget> {
-  
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("${widget.academic?.name??"coming soon.."}")));
-        
-          //  setState(() {
-             
-          //  }); 
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text("${widget.academic?.name ?? "coming soon.."}")));
+
+        //  setState(() {
+
+        //  });
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
-        child: Card(
-            color: Colors.white,
-            child: Center(
-              child: Column(
-              
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(widget.academic?.image ?? "coming soon..",
-                  width: 60,
-                  height: 60,
-                  
+        child: Container(
+          width: width *.25,
+          height: height * .5,
+          child: Card(
+              color: Colors.white,
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        widget.academic?.image ?? "coming soon..",
+                        width: width * .13,
+                        height: width * .13,
+                      ),
+                      Text(
+                                              widget.academic?.name ?? "coming soon",
+                                              style:  TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: width*.03),
+                                            ),
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(widget.academic?.name ?? "coming soon", style: const TextStyle(fontWeight: FontWeight.bold),),
-                  ),
-                ],
-              ),
-            )),
+                ),
+              )),
+        ),
       ),
     );
   }

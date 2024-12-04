@@ -64,6 +64,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 height: 10,
               ),
               TextField(
+                // readOnly: true,
                 decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.search,
@@ -71,6 +72,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                     hintText: "Search",
                     hintStyle: TextStyle(color: Colors.black.withOpacity(.5)),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: const BorderSide(color: Colors.white),
+                    ), 
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: const BorderSide(color: Colors.white),
@@ -95,7 +100,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               const SizedBox(
                 height: 10,
               ),
-              Flexible(
+              Expanded(
                 child: LayoutBuilder(builder: (context, constrinSize) {
                   if (constrinSize.maxWidth > 1200) {
                     //desktop
@@ -110,8 +115,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   return GridView.builder(
                       itemCount: academicMod.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisSpacing: 15,
-                          mainAxisSpacing: 15,
+                          crossAxisSpacing: 13,
+                          mainAxisSpacing: 13,
                           crossAxisCount: crossAxisCount),
                       itemBuilder: (context, index) {
                         return AcademicWidget(
