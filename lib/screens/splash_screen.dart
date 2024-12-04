@@ -18,11 +18,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   navigateToDashBoard() {
     try {
-      Future.delayed(Duration(milliseconds: 3000), () {
+      Future.delayed(const Duration(milliseconds: 3000), () {
+
         if (mounted) {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => DashboardScreen()));
+              MaterialPageRoute(builder: (context) => const DashboardScreen()));
         }
+
       });
     } catch (e) {}
   }
@@ -30,21 +32,29 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset("assets/image/school.jpg"),
-            Text(
-              "SCHOOL",
-              style: TextStyle(
-                  fontFamily: "park",
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text("School Management App")
-          ],
-        ),
+        child:  Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width:95, height:95,
+            
+            child: Image.asset("assets/icon/group.png", 
+            fit: BoxFit.contain,
+            
+            )),
+          const Text(
+            "SCHOOL",
+            style: TextStyle(
+                fontFamily: "park",
+                fontSize: 40,
+                fontWeight: FontWeight.bold),
+          ),
+          const Text("School Management App")
+        ],
+                  ),
+       
       ),
     );
   }
