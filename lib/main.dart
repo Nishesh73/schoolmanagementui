@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schoolmanagementui/screens/dashboard_screen.dart';
 import 'package:schoolmanagementui/screens/splash_screen.dart';
 
 void main() {
@@ -12,11 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'School Management App',
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
+      // home: DashboardScreen(),
     );
   }
 }
